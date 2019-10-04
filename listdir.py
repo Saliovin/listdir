@@ -34,7 +34,7 @@ if __name__ == "__main__":
     with open(f"{args.filename}.csv", "w+", newline='') as csv_file:
         abs_path = os.path.abspath(args.path)
         csv_file.write("parent path,filename,file size\n")
-        writer = csv.writer(csv_filsse, delimiter=',')
+        writer = csv.writer(csv_file, delimiter=',')
 
         try:
             writer.writerows(listdir(abs_path, args.recursive))
