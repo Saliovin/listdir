@@ -2,6 +2,7 @@ import argparse
 import os
 import csv
 import hashlib
+import zipfile
 
 
 def listdir(directory, nonrecursive):
@@ -46,6 +47,13 @@ def csv_row(directory, file, file_path):
     return directory, file, os.stat(file_path).st_size, md5_hasher.hexdigest(), sha1_hasher.hexdigest()
 
 
+def zip_output(filename):
+    with zipfile.ZipFile(f"{filename}.zip", "w") as zip_file:
+        zip_file.write(filename)
+
+    os.remove(filename)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("path", help="Directory for file listing.")
@@ -53,8 +61,10 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--nonrecursive", action="store_true", help="Lists files non-recursively.")
     args = parser.parse_args()
 
-    with open(f"{args.filename}.csv", "w+", newline='') as csv_file:
+    with open(args.filename, "w+", newline='') as csv_file:
         abs_path = os.path.abspath(args.path)
         csv_file.write("parent path,filename,file size, md5, sha1\n")
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerows(listdir(abs_path, args.nonrecursive))
+
+    zip_output(args.filename)
