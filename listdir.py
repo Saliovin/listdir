@@ -3,6 +3,7 @@ import os
 import csv
 import hashlib
 import zipfile
+import configparser
 
 
 def listdir(directory, nonrecursive):
@@ -48,6 +49,11 @@ def csv_row(directory, file, file_path):
 
 
 def zip_output(filename):
+    """
+    Creates a zip file and out of the input file.
+    :param filename: Name of the file
+    :return: none
+    """
     with zipfile.ZipFile(f"{filename}.zip", "w") as zip_file:
         zip_file.write(filename)
 
@@ -55,9 +61,12 @@ def zip_output(filename):
 
 
 if __name__ == "__main__":
+    config = configparser.ConfigParser()
+    config.read("config.ini")
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("path", help="Directory for file listing.")
-    parser.add_argument("filename", help="Name of the csv file output.")
+    parser.add_argument("path", help="Directory for file listing.", nargs="?",  default=config["default"]["path"])
+    parser.add_argument("filename", help="Name of the csv file output.", nargs="?", default=config["default"]["output_file"])
     parser.add_argument("-n", "--nonrecursive", action="store_true", help="Lists files non-recursively.")
     args = parser.parse_args()
 
