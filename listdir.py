@@ -8,7 +8,7 @@ def listdir(directory, nonrecursive):
     Return a string containing a list of each file in a directory. Uses CSV format.
 
     :param directory: Directory to be checked for file listing.
-    :param nonrecursive: List files recursively if True.
+    :param nonrecursive: List files non-recursively if True.
     :return: String containing a list of each file in a directory.
     """
     csv_output = []
