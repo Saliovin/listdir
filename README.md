@@ -23,7 +23,7 @@ optional arguments:
 ```
 
 ## Example
-List all the files in /etc including subdirectories and output it to etc_output.csv
+List all the files in /etc including subdirectories and output it to etc_output
 ```
 python listdir.py /etc etc_output
 ```
