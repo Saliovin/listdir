@@ -4,6 +4,40 @@ import csv
 import hashlib
 import zipfile
 import configparser
+from datetime import datetime
+
+
+def ini_arguments():
+    """
+    Initialize and read arguments.
+
+    :return: Parsed arguments.
+    """
+    config = configparser.ConfigParser()
+    config.read("config.ini")
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", help="Directory for file listing.", nargs="?", default=config["default"]["path"])
+    parser.add_argument("filename", help="Name of the csv file output.", nargs="?",
+                        default=config["default"]["output_file"])
+    parser.add_argument("-n", "--nonrecursive", action="store_true", help="Lists files non-recursively.")
+    return parser.parse_args()
+
+
+def create_csv(filename, path, nonrecursive):
+    """
+    Create a csv file containing a list of files inside the path.
+
+    :param filename: Output filename.
+    :param path: Path to be checked for files.
+    :param nonrecursive: Whether to check subdirectories or not.
+    :return:
+    """
+    with open(final_filename, "w+", newline='') as csv_file:
+        abs_path = os.path.abspath(path)
+        csv_file.write("parent path,filename,file size, md5, sha1\n")
+        writer = csv.writer(csv_file, delimiter=',')
+        writer.writerows(listdir(abs_path, nonrecursive))
 
 
 def listdir(directory, nonrecursive):
@@ -30,10 +64,22 @@ def listdir(directory, nonrecursive):
 def csv_row(directory, file, file_path):
     """
     Return a list of five values, namely, directory, file, path, md5, and sha1.
+
     :param directory: Parent directory of the file.
     :param file: File name.
     :param file_path: Full path of the file.
     :return: Directory, file, path, md5, and sha1.
+    """
+    hashes = get_hash(file_path)
+    return directory, file, os.stat(file_path).st_size, hashes[0], hashes[1]
+
+
+def get_hash(file_path):
+    """
+    Return md5 and sha1 hashes of the file.
+
+    :param file_path: Full path of the file.
+    :return: md5 and sha1 hashes of the file.
     """
     block_size = 65536
     md5_hasher = hashlib.md5()
@@ -45,12 +91,13 @@ def csv_row(directory, file, file_path):
             sha1_hasher.update(block)
             block = f.read(block_size)
 
-    return directory, file, os.stat(file_path).st_size, md5_hasher.hexdigest(), sha1_hasher.hexdigest()
+    return md5_hasher.hexdigest(), sha1_hasher.hexdigest()
 
 
 def zip_output(filename):
     """
     Creates a zip file and out of the input file.
+
     :param filename: Name of the file
     :return: none
     """
@@ -61,19 +108,7 @@ def zip_output(filename):
 
 
 if __name__ == "__main__":
-    config = configparser.ConfigParser()
-    config.read("config.ini")
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("path", help="Directory for file listing.", nargs="?",  default=config["default"]["path"])
-    parser.add_argument("filename", help="Name of the csv file output.", nargs="?", default=config["default"]["output_file"])
-    parser.add_argument("-n", "--nonrecursive", action="store_true", help="Lists files non-recursively.")
-    args = parser.parse_args()
-
-    with open(args.filename, "w+", newline='') as csv_file:
-        abs_path = os.path.abspath(args.path)
-        csv_file.write("parent path,filename,file size, md5, sha1\n")
-        writer = csv.writer(csv_file, delimiter=',')
-        writer.writerows(listdir(abs_path, args.nonrecursive))
-
-    zip_output(args.filename)
+    args = ini_arguments()
+    final_filename = f"{args.filename}[{datetime.now().strftime('%m%d%y-%H%M')}]"
+    create_csv(final_filename, args.path, args.nonrecursive)
+    zip_output(final_filename)
