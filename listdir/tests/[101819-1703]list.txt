@@ -1,0 +1,9 @@
+parent path,filename,file size, md5, sha1
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir,config.ini,43,97afd8559fbc8c8c96d5db96857c87b9,2099002e5d2654a592d6f4fdfc17e5e667ba2738
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir,listdir.py,3754,6165743ca27714a853ab02a3c56e7a2a,1ec061d5ae31c29ab12c2d80f8cd2f666882e083
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir/tests,test_listdir.py,684,fa0ef6638b5c380e58cefb822831396c,2a4b022bf6308a7234a97993720405f737eeb827
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir/tests/__pycache__,test_listdir.cpython-37-pytest-5.2.1.pyc,1793,716b93b02b8a948425d940cfa1486f2c,f446629b28489bec1148480aefa2ab7d8c5c2e2d
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir,[101819-1703]list.txt,0,d41d8cd98f00b204e9800998ecf8427e,da39a3ee5e6b4b0d3255bfef95601890afd80709
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir,__init__.py,27,09765c37169f39195620ac1e828687ba,06029679e6d54cd1288bce4d08150ac2783152b4
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir/__pycache__,listdir.cpython-37.pyc,3725,b040f7fa787749cbf70723be05e84219,a7f7cd34b447035e6b3f08629616542ee26b8815
+C:\Users\TEU_USER\PycharmProjects\listdir\listdir/__pycache__,__init__.cpython-37.pyc,164,8a1da65c495e0f7581c95d93e1cefa2d,d33c820e3a9bbc7951bd4b5b9b33a3f235468848

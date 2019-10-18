@@ -1,1 +1,1 @@
-name = "listdir"
+from listdir import listdir

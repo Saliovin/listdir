@@ -94,7 +94,7 @@ def get_hash(file_path):
     return md5_hasher.hexdigest(), sha1_hasher.hexdigest()
 
 
-def zip_output(filename):
+def zip_output(filename, del_original):
     """
     Creates a zip file and out of the input file.
 
@@ -104,7 +104,8 @@ def zip_output(filename):
     with zipfile.ZipFile(f"{filename}.zip", "w", zipfile.ZIP_DEFLATED) as zip_file:
         zip_file.write(filename)
 
-    os.remove(filename)
+    if del_original:
+        os.remove(filename)
 
 
 def main():
@@ -112,7 +113,7 @@ def main():
     final_filename = f"[{datetime.now().strftime('%m%d%y-%H%M')}]{args.filename}"
     print(args.path)
     create_csv(final_filename, args.path, args.nonrecursive)
-    zip_output(final_filename)
+    zip_output(final_filename, True)
 
 
 if __name__ == "__main__":
