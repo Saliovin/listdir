@@ -63,12 +63,12 @@ def listdir(directory, nonrecursive):
 
 def csv_row(directory, file, file_path):
     """
-    Return a list of five values, namely, directory, file, path, md5, and sha1.
+    Return a list of five values, namely, directory, file, size, md5, and sha1.
 
     :param directory: Parent directory of the file.
     :param file: File name.
     :param file_path: Full path of the file.
-    :return: Directory, file, path, md5, and sha1.
+    :return: Directory, file, size, md5, and sha1.
     """
     hashes = get_hash(file_path)
     return directory, file, os.stat(file_path).st_size, hashes[0], hashes[1]
@@ -101,7 +101,7 @@ def zip_output(filename):
     :param filename: Name of the file
     :return: none
     """
-    with zipfile.ZipFile(f"{filename}.zip", "w") as zip_file:
+    with zipfile.ZipFile(f"{filename}.zip", "w", zipfile.ZIP_DEFLATED) as zip_file:
         zip_file.write(filename)
 
     os.remove(filename)
@@ -109,6 +109,6 @@ def zip_output(filename):
 
 if __name__ == "__main__":
     args = ini_arguments()
-    final_filename = f"{args.filename}[{datetime.now().strftime('%m%d%y-%H%M')}]"
+    final_filename = f"[{datetime.now().strftime('%m%d%y-%H%M')}]{args.filename}"
     create_csv(final_filename, args.path, args.nonrecursive)
     zip_output(final_filename)
