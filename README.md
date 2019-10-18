@@ -23,7 +23,11 @@ optional arguments:
   -h, --help       show this help message and exit
   -n, --nonrecursive  Lists files non-recursively.
 ```
-
+## How To Test
+Open terminal inside the tests directory
+```
+pytest --cov
+```
 ## Example
 List all the files in /etc including subdirectories and output it to etc_output.zip
 ```
