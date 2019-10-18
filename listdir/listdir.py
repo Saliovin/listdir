@@ -14,10 +14,10 @@ def ini_arguments():
     :return: Parsed arguments.
     """
     config = configparser.ConfigParser()
-    config.read("config.ini")
-
+    config_dir = os.path.dirname(__file__)
+    config.read(config_dir + "/config.ini")
     parser = argparse.ArgumentParser()
-    parser.add_argument("path", help="Directory for file listing.", nargs="?", default=config["default"]["path"])
+    parser.add_argument("path", type=str, help="Directory for file listing.", nargs="?", default=config["default"]["path"])
     parser.add_argument("filename", help="Name of the csv file output.", nargs="?",
                         default=config["default"]["output_file"])
     parser.add_argument("-n", "--nonrecursive", action="store_true", help="Lists files non-recursively.")
@@ -33,7 +33,7 @@ def create_csv(filename, path, nonrecursive):
     :param nonrecursive: Whether to check subdirectories or not.
     :return:
     """
-    with open(final_filename, "w+", newline='') as csv_file:
+    with open(filename, "w+", newline='') as csv_file:
         abs_path = os.path.abspath(path)
         csv_file.write("parent path,filename,file size, md5, sha1\n")
         writer = csv.writer(csv_file, delimiter=',')
@@ -107,8 +107,13 @@ def zip_output(filename):
     os.remove(filename)
 
 
-if __name__ == "__main__":
+def main():
     args = ini_arguments()
     final_filename = f"[{datetime.now().strftime('%m%d%y-%H%M')}]{args.filename}"
+    print(args.path)
     create_csv(final_filename, args.path, args.nonrecursive)
     zip_output(final_filename)
+
+
+if __name__ == "__main__":
+    main()
