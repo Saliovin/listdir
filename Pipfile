@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+yaml = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"
