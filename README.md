@@ -8,20 +8,20 @@ This is a Python program that creates list of files in a directory and outputs i
 
 ## How to use?
 ```
-python listdir.py [-h] [-n] path filename
+listdir [-h] [-n] [-j] [path] [filename]
 ```
 
 ## Arguments
 ```
 positional arguments:
-  path             Directory for file listing.
-    default: Current directory.
-  filename         Name of the csv file output.
-    default: list.txt
+  path                Directory for file listing.
+  filename            Name of the csv file output.
 
 optional arguments:
-  -h, --help       show this help message and exit
+  -h, --help          show this help message and exit
   -n, --nonrecursive  Lists files non-recursively.
+  -j, --json          Output in JSON instead of CSV.
+
 ```
 ## How To Test
 Open terminal inside the tests directory
