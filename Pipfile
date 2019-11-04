@@ -6,8 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-yaml = "*"
 pyyaml = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

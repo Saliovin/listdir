@@ -1,0 +1,55 @@
+2019-11-04 16:40:52,689 - INFO - Connecting to postgres database
+2019-11-04 16:40:52,689 - INFO - Connected to postgres database
+2019-11-04 16:40:52,762 - INFO - Checking for existing database
+2019-11-04 16:40:52,764 - INFO - Database exists
+2019-11-04 16:40:52,765 - INFO - Connecting to listdir database
+2019-11-04 16:40:52,765 - INFO - Connected to listdir database
+2019-11-04 16:40:52,861 - INFO - Checking for existing table
+2019-11-04 16:40:52,861 - INFO - Table found
+2019-11-04 16:40:52,862 - INFO - Writing to database
+2019-11-04 16:43:08,960 - INFO - Connecting to postgres database
+2019-11-04 16:43:08,961 - INFO - Connected to postgres database
+2019-11-04 16:43:09,144 - INFO - Checking for existing database
+2019-11-04 16:43:09,161 - INFO - Database exists
+2019-11-04 16:43:09,162 - INFO - Connecting to listdir database
+2019-11-04 16:43:09,163 - INFO - Connected to listdir database
+2019-11-04 16:43:09,237 - INFO - Checking for existing table
+2019-11-04 16:43:09,239 - INFO - Table found
+2019-11-04 16:43:09,239 - INFO - Writing to database
+2019-11-04 16:58:18,663 - INFO - Connecting to postgres database
+2019-11-04 16:58:18,663 - INFO - Connected to postgres database
+2019-11-04 16:58:18,760 - INFO - Checking for existing database
+2019-11-04 16:58:18,762 - INFO - Database does not exist, creating new one
+2019-11-04 16:58:26,723 - INFO - Connecting to listdir database
+2019-11-04 16:58:26,723 - INFO - Connected to listdir database
+2019-11-04 16:58:26,806 - INFO - Checking for existing table
+2019-11-04 16:58:26,808 - INFO - Table missing, creating new one
+2019-11-04 16:58:26,895 - INFO - Table created
+2019-11-04 16:58:26,895 - INFO - Writing to database
+2019-11-04 17:00:49,927 - INFO - Connecting to postgres database
+2019-11-04 17:00:49,928 - INFO - Connected to postgres database
+2019-11-04 17:00:49,995 - INFO - Checking for existing database
+2019-11-04 17:00:49,996 - INFO - Database exists
+2019-11-04 17:00:49,997 - INFO - Connecting to listdir database
+2019-11-04 17:00:49,997 - INFO - Connected to listdir database
+2019-11-04 17:00:50,043 - INFO - Checking for existing table
+2019-11-04 17:00:50,045 - INFO - Table found
+2019-11-04 17:00:50,045 - INFO - Writing to database
+2019-11-04 17:01:25,619 - INFO - Connecting to postgres database
+2019-11-04 17:01:25,619 - INFO - Connected to postgres database
+2019-11-04 17:01:25,847 - INFO - Checking for existing database
+2019-11-04 17:01:25,850 - INFO - Database exists
+2019-11-04 17:01:25,850 - INFO - Connecting to listdir database
+2019-11-04 17:01:25,851 - INFO - Connected to listdir database
+2019-11-04 17:01:25,920 - INFO - Checking for existing table
+2019-11-04 17:01:25,921 - INFO - Table found
+2019-11-04 17:01:25,921 - INFO - Writing to database
+2019-11-04 17:24:49,695 - INFO - Connecting to postgres database
+2019-11-04 17:24:49,695 - INFO - Connected to postgres database
+2019-11-04 17:24:49,757 - INFO - Checking for existing database
+2019-11-04 17:24:49,759 - INFO - Database exists
+2019-11-04 17:24:49,759 - INFO - Connecting to listdir database
+2019-11-04 17:24:49,760 - INFO - Connected to listdir database
+2019-11-04 17:24:49,810 - INFO - Checking for existing table
+2019-11-04 17:24:49,811 - INFO - Table found
+2019-11-04 17:24:49,812 - INFO - Writing to database

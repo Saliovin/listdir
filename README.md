@@ -8,28 +8,30 @@ This is a Python program that creates list of files in a directory and outputs i
 
 ## How to use?
 ```
-python listdir.py [-h] [-n] path filename
+listdir.py [-h] (-c | -j | -s) [path] [filename]
 ```
 
 ## Arguments
 ```
 positional arguments:
-  path             Directory for file listing.
-    default: Current directory.
-  filename         Name of the csv file output.
-    default: list.txt
+  path        Directory for file listing.
+  filename    Name of the output file.
 
 optional arguments:
-  -h, --help       show this help message and exit
-  -n, --nonrecursive  Lists files non-recursively.
+  -h, --help  show this help message and exit
+  -c, --csv   Output in CSV.
+  -j, --json  Output in JSON.
+  -s, --sql   Output to a database.
 ```
+
 ## How To Test
 Open terminal inside the tests directory
 ```
 pytest --cov
 ```
+
 ## Example
-List all the files in /etc including subdirectories and output it to etc_output.zip
+List all the files in /etc and post it to a database
 ```
-python listdir.py /etc etc_output
+python listdir.py /etc -s
 ```

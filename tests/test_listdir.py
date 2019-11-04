@@ -5,7 +5,6 @@ import os
 
 def test_zip_output():
     listdir.zip_output("[101819-1703]list.txt", False)
-
     hash1 = get_hash("true_copy.zip")
     hash2 = get_hash("[101819-1703]list.txt.zip")
 
