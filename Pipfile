@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 pyyaml = "*"
 psycopg2 = "*"
+pika = "*"
 
 [requires]
 python_version = "3.7"
