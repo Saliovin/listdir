@@ -1,14 +1,15 @@
 # listdir
 
 ## What is it?
-This is a Python program that creates list of files in a directory and outputs it to a csv file, then putting it into a zip.
+This is a Python program that creates list of files in a directory. Can output to a CSV file, JSON file, database, 
+or queue
 
 ## Requirements
 - [Python 3](https://www.python.org/downloads/)
 
 ## How to use?
 ```
-listdir.py [-h] (-c | -j | -s) [path] [filename]
+listdir.py [-h] (-c | -j | -s | -q) [path] [filename]
 ```
 
 ## Arguments
@@ -22,6 +23,7 @@ optional arguments:
   -c, --csv   Output in CSV.
   -j, --json  Output in JSON.
   -s, --sql   Output to a database.
+  -q, --queue Output to a queue
 ```
 
 ## How To Test

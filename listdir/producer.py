@@ -6,7 +6,7 @@ def send_messages(messages):
     channel, connection = connect_to_broker('localhost')
     channel.queue_declare(queue='listdir')
     for message in messages:
-        channel.basic_publish(exchange='', routing_key='listdir', body=json.dumps(message, sort_keys=True))
+        channel.basic_publish(exchange='', routing_key='listdir', body=json.dumps(message, indent=4))
     connection.close()
 
 
