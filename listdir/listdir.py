@@ -7,6 +7,7 @@ import configparser
 import json
 import db_manager
 import logger
+import producer
 from datetime import datetime
 
 logger = logger.ini_logger(__name__)
@@ -30,6 +31,7 @@ def ini_arguments():
     output_type.add_argument("-c", "--csv", action="store_true", help="Output in CSV.")
     output_type.add_argument("-j", "--json", action="store_true", help="Output in JSON.")
     output_type.add_argument("-s", "--sql", action="store_true", help="Output to a database.")
+    output_type.add_argument("-q", "--queue", action="store_true", help="Send as a message to RabbitMQ server")
     return parser.parse_args(), config
 
 
@@ -157,6 +159,9 @@ def main():
     elif args[0].sql:
         db_manager.write_to_db(listdir(abs_path).values(), args[1]['database']['username'],
                                args[1]['database']['hostname'])
+    elif args[0].queue:
+        messages = listdir(abs_path).values()
+        producer.send_messages(messages)
 
 
 if __name__ == "__main__":
